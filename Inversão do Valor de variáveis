@@ -4,3 +4,10 @@ a = a + b // 5 + 10 = 15
 b = a - b // 15 - 10 = 5
 a = a - b // 15 - 5 = 10
 console.log(a, b)
+
+a = Number(prompt("Digite um numero: "))
+b = Number(prompt("Digite outro numero: "))
+a = a + b
+b = a - b
+a = a - b 
+console.log("A: "+ a + " B: " + b)
