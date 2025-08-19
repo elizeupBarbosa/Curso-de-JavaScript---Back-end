@@ -3,3 +3,9 @@ altura =  prompt("Qual sua altura? ")
 imc = (peso)/altura**2
 conta = imc.toFixed(2).replace ('.' , ',')
 console.log("Imc: ", conta)
+
+altura = prompt("Qual sua altura? ").replace(',' , '.')
+peso = prompt("Qual seu peso? ").replace(',' , '.')
+imc = (peso)/altura**2
+imc = imc.toFixed(2).replace ('.' , ',')
+console.log("Imc: ", imc)
