@@ -10,3 +10,9 @@ if (media >= 7){
 } else{
   console.log("Reprovado!")
 }
+
+//Estrututas Básica
+
+idade = prompt("Sua idade: ")
+situacao = (idade >= 18) ? "Adulto" : "Menor"
+console.log(situacao)
