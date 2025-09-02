@@ -3,3 +3,15 @@ while (cont <= 10) {
   console.log("Numero: " + cont)
   cont++ //incrementa para loop infinito
 }
+
+
+//Cada multiplo de 3 vai exibir PIN
+cont = 1
+while (cont <= 25){
+  if ((cont%3)==0){
+  console.log("pin")
+  }else{
+    console.log(cont)
+  }
+  cont++
+}
