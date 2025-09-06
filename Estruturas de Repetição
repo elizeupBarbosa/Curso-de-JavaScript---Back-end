@@ -29,3 +29,12 @@ console.log("Valor investido: " + cap)
 console.log("Tempo de investimento: " + tempo)
 console.log("Taxa de juros: " + taxa)
 console.log("Montante: " + m.toFixed(2))
+
+//Para ler produtos no mercado
+p = parseFloat(prompt("P: "))
+soma = 0
+while (p > 0){
+  soma += p
+  p = parseFloat(prompt("P: "))
+}
+console.log(soma)
