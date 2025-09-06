@@ -15,3 +15,17 @@ while (cont <= 25){
   }
   cont++
 }
+
+
+//Juros compostos
+cap = parseFloat(prompt("Valor do investimento: "))
+tempo = parseInt(prompt("Tempo de aplicação: "))
+taxa = parseFloat(prompt("Taxa de juros: "))
+m = cap
+for (c = 1; c <= tempo; c++){
+  m = m + (m*taxa)
+}
+console.log("Valor investido: " + cap)
+console.log("Tempo de investimento: " + tempo)
+console.log("Taxa de juros: " + taxa)
+console.log("Montante: " + m.toFixed(2))
