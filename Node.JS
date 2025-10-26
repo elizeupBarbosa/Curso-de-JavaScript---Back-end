@@ -10,7 +10,7 @@ server.listen(3000, '127.0.0.1', () => {
 });
 
 
-//Estudando em casa
+//ESTUDANDO EM CASA
 const readline = require('readline');
 const rl = readline.createInterface({
     input: process.stdin,
@@ -21,5 +21,20 @@ rl.question("Digite um número: ", (num1) => {
     const soma = Number(num1) + Number(num2);
     console.log(`A soma entre ${num1} e ${num2} é ${soma}`);
     rl.close();
+    });
+});
+
+//ESTUDANDO EM CASA
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+rl.question("Qual seu nome? ", (nome) => {
+    rl.question("Qual curso você faz? ", (curso) => {
+        rl.question("De que cidade você é? ", (cidade) =>{
+        console.log(`${nome} estuda ${curso} e mora em ${cidade}`);
+        rl.close();
+        });
     });
 });
