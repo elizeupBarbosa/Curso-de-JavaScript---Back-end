@@ -1,4 +1,5 @@
- function maioridade(idade){
+//EXERCICIO 1
+function maioridade(idade){
   if(idade >= 18) {
     return("Você é maior de idade")
   }else{
@@ -8,3 +9,19 @@
 
 let resposta = maioridade(16);
 console.log(resposta)
+
+
+//EXERCICIO 2
+function calcMedia(n1, n2, n3) {
+  let media = (n1 + n2 + n3)/3
+  if(media >= 6) {
+    return `Aprovado com média ${media.toFixed(1)}`
+  }else if (media >= 4 && media < 6) {
+    return `Recuperação com ${media.toFixed(1)}`
+  }else{
+    return `Reprovado com ${media.toFixed(1)}`
+  }
+}
+
+let media = calcMedia(4, 7, 8)
+console.log(media)
