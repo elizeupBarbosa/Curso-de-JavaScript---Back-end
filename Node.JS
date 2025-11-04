@@ -102,3 +102,29 @@ const server = createServer((req, res) =>{
 server.listen(3000, '127.0.0.1', () => {
     console.log('Listening on 127.0.0.1:3000');
 });
+
+
+//AULA4 NA UEPA APRENDENDO EXPRESS
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) => {
+    res.send('Seja bem-vindo ao meu app Express!');
+});
+
+app.post('/artigos', (req, res) => {
+    res.send('Lista de artigos recebida via POST')
+})
+
+app.put('/contado', (req, res) => {
+    res.send('Para entrar em contato, envie um PUT request')
+});
+
+app.delete('/user', (req, res) => {
+    res.send('Got a DELETE request at /user')
+});
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+});
