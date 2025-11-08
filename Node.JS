@@ -128,3 +128,21 @@ app.delete('/user', (req, res) => {
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 });
+
+
+//ESTUDANDO EM CASA. APRENDENDO USO DE ROTAS
+var express = require("express")
+var app = express()
+
+app.get("/", function(req, res){
+    res.send("Seja bem-vindo ao meu servidor")
+})
+
+app.get("/hw", function(req, res){
+    res.send("Hello word")
+})
+
+
+app.listen(8081, function(){
+    console.log("Servifor OK!")
+})
