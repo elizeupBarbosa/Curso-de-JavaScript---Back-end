@@ -146,3 +146,112 @@ app.get("/hw", function(req, res){
 app.listen(8081, function(){
     console.log("Servifor OK!")
 })
+
+
+//INTEGRAÇÃO COM O BANCO DE DADOS
+const express = require('express');
+const path = require('path');
+const sqlite3 = require('sqlite3');
+
+// Inicializa o Express
+const app = express();
+const port = 4000;
+
+// Conecta ao banco SQLite
+const db = new sqlite3.Database('./bd.sqlite', (err) => {
+    if (err) {
+        console.error("Erro ao conectar:", err.message);
+        return;
+    }
+    console.log("Conectado ao banco SQLite!");
+});
+
+// Middleware para receber JSON (importante para POST futuramente)
+app.use(express.json());
+
+
+// ==========================
+// Rotas exemplo do professor
+// ==========================
+
+app.get('/', (req, res) => {
+    res.send('Seja bem-vindo ao meu app Express!');
+});
+
+app.post('/artigos', (req, res) => {
+    res.send('Lista de artigos recebida via POST');
+});
+
+app.get('/contato', (req, res) => {
+    res.send('Para entrar em contato, envie um PUT request');
+});
+
+app.delete('/user', (req, res) => {
+    res.send('DELETE executado em /user');
+});
+
+
+// ==========================
+// ROTA QUE CONSULTA O BANCO
+// ==========================
+
+app.get('/clientes', (req, res) => {
+    const sql = "SELECT * FROM CLIENTE";
+
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            return res.status(500).send("Erro ao buscar clientes");
+        }
+
+        let html = `
+            <h1>Lista de Clientes</h1>
+            <table border="1" cellpadding="8" cellspacing="0">
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>Cidade</th>
+                    <th>CEP</th>
+                    <th>UF</th>
+                </tr>
+        `;
+
+        rows.forEach(cliente => {
+            html += `
+                <tr>
+                    <td>${cliente.COD_CLI}</td>
+                    <td>${cliente.NOME_CLI}</td>
+                    <td>${cliente.ENDERECO}</td>
+                    <td>${cliente.CIDADE}</td>
+                    <td>${cliente.CEP}</td>
+                    <td>${cliente.UF}</td>
+                </tr>
+            `;
+        });
+
+        html += `</table>`;
+
+        res.send(html);
+    });
+});
+
+
+
+// ==========================
+// Middleware 404
+// ==========================
+
+app.use((req, res) => {
+    res.status(404);
+    res.sendFile(path.join(__dirname, '404.html'));
+    console.log("Rota não encontrada:", req.url);
+});
+
+
+// ==========================
+// Inicia servidor
+// ==========================
+
+app.listen(port, () => {
+    console.log(`Servidor rodando na porta ${port}`);
+});
