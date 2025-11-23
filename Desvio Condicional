@@ -16,3 +16,24 @@ if (media >= 7){
 idade = prompt("Sua idade: ")
 situacao = (idade >= 18) ? "Adulto" : "Menor"
 console.log(situacao)
+
+//CALCULADO BASICA
+let num1 = parseFloat(prompt("Digite um número: "))
+let num2 = parseFloat(prompt("Digite outro número: "))
+let op = prompt("Escolha um operador: +, -, *, /: ")
+let resultado
+if(op === "+"){
+  resultado = num1+num2
+  console.log(`${num1} + ${num2} = ${resultado}`)
+}else if(op === "-"){
+  resultado = num1-num2
+  console.log(`${num1} - ${num2} = ${resultado}`)
+}else if(op === "*"){
+  resultado = num1*num2
+  console.log(`${num1} x ${num2} = ${resultado}`)
+}else if(op === "/"){
+  resultado = num1/num2
+  console.log(`${num1} : ${num2} = ${resultado.toFixed(2)}`)
+}else{
+  console.log("Opedaro inválido.")
+}
